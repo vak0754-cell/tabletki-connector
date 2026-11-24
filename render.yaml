@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tabletki-connector
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: TABLETKI_DEFAULT_CITY
+        value: kyiv
+      - key: TABLETKI_CACHE_TTL_SECONDS
+        value: "1200"
+      - key: TABLETKI_RATE_LIMIT_RPS
+        value: "1.0"
+      - key: TABLETKI_ENABLE_PLAYWRIGHT_FALLBACK
+        value: "false"
