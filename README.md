@@ -52,3 +52,12 @@ python -m unittest discover -s tests -v
 ## Оновлення селекторів
 
 Якщо верстка сайту зміниться, достатньо оновити CSS-селектори у файлі `app/selectors.json`.
+
+## Пошук на Render (Serper)
+
+Прямі запити до tabletki.ua з Render блокує Cloudflare. На продакшені конектор використовує [Serper](https://serper.dev) (пошук Google) і читає результати з `site:tabletki.ua`.
+
+1. Створіть ключ на https://serper.dev.
+2. У Render (Dashboard → Environment) додайте секрет `TABLETKI_SERPER_API_KEY`. У `render.yaml` це поле з `sync: false`, тож ключ треба ввести вручну і не комітити його в Git.
+3. Без ключа API і MCP повернуть явну помилку, що `TABLETKI_SERPER_API_KEY` не задано; локально без ключа лишається прямий запит до tabletki.ua.
+

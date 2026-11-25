@@ -14,3 +14,6 @@ services:
         value: "1.0"
       - key: TABLETKI_ENABLE_PLAYWRIGHT_FALLBACK
         value: "false"
+      - key: TABLETKI_SERPER_API_KEY
+        sync: false
+
